@@ -21,8 +21,10 @@ class ConditionalInterrupt:
 		            "default": True
 		        }),
 		        "input": (any_type, ),
-		        "delay_helper": (any_type)
 		    },
+		    "optional": {
+		        "delay_helper": (any_type)
+		    }
 		}
 
 	RETURN_TYPES = (any_type, )
@@ -30,7 +32,7 @@ class ConditionalInterrupt:
 	FUNCTION = "doit"
 	CATEGORY = "utils"
 
-	def doit(self, proceed, input, delay_helper):
+	def doit(self, proceed, input, delay_helper=None):
 		if not proceed:
 			nodes.interrupt_processing()
 
