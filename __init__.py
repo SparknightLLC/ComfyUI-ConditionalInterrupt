@@ -20,12 +20,16 @@ class ConditionalInterrupt:
 		        "proceed": ("BOOLEAN", {
 		            "default": True
 		        }),
-		        "input": (any_type, ),
+		        "input": ("*", ),
 		    },
 		    "optional": {
-		        "delay_helper": (any_type)
+		        "delay_helper": ("*")
 		    }
 		}
+
+	@classmethod
+	def VALIDATE_INPUTS(s, input_types):
+		return True
 
 	RETURN_TYPES = (any_type, )
 	RETURN_NAMES = ("output", )
